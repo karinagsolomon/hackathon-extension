@@ -1,20 +1,28 @@
 {
-    "manifest_version": 3,
-    "name": "Paw-sitive Pause",
-    "version": "1.0",
-    "description": "A puppy just furr you.",
+  "name": "Paw-sitive Pause",
+  "version": "1.0.0",
+  "manifest_version": 3,
+  "chrome_url_overrides": {
+    "newtab": "index.html"
+  }, "description": "A puppy just furr you.",
     "content scripts": [
         {
-        "matches": ["https://www.gethappydog.com/*"],
-        "js": ["./main.js"]
+            "matches": [
+                "https://www.gethappydog.com/*"
+            ],
+            "js": [
+                "./main.js"
+            ]
         }
     ],
+  "permissions": ["storage"],
+
     "icons": {
-        "16": "img/favicon.png"
+        "16": "assets/favicon.png"
     },
     "action": {
     "default_icon": {
-      "16": "img/favicon.png"
+      "16": "assets/favicon.png"
     }
     }
 }
