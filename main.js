@@ -1,9 +1,3 @@
-// New
-// Open a new tab whenever the extension is clicked:
-// chrome.browserAction.onClicked.addListener(function(){
-//   chrome.tabs.create({'url': "chrome://newtab"})
-// })
-
 
 // creating and showing the timer
 
@@ -27,28 +21,62 @@ const pauseButton = document.createElement("BUTTON");
 pauseButton.innerHTML = `Pawwws`;
 body.appendChild(pauseButton);
 pauseButton.id = "pause";
-// document.getElementById("pause").addEventListener("click", timer);
 
-// dropdown -> to select type of timer
- // 1. focus 2. hydration check 3. nap
-const dropdown = document.createElement("dropdown");
-body.appendChild("dropdown");
-const dropbtn = document.createElement("dropbtn");
-dropdown.appendChild("dropbtn");
-dropbtn.innerHTML = `Select your leisure break`;
-const dropdowncontent = document.createElement("dropdown-content");
-dropbtn.appendChild("dropdown-content");
-const a = document.createElement("a");
-dropdowncontent.appendChild("a");
-dropdowncontent.innerHTML = "1. Focus";
-dropdowncontent.appendChild("a");
-dropdowncontent.innerHTML = "1. Hydration Check";
-dropdowncontent.appendChild("a");
-dropdowncontent.innerHTML = "1. Nap";
+// pill nav
+
+const nav = document.createElement("h3");
+nav.innerHTML = 'Select your leisure break: ';
+body.appendChild(nav);
+
+const pillNav = document.createElement("div");
+document.body.appendChild(pillNav);
+pillNav.className = "pillNav";
+
+const a1 = document.createElement("a");
+pillNav.appendChild(a1);
+a1.href = "#";
+a1.id = "a1";
+a1.textContent = "1. Focus";
+
+
+
+const a2 = document.createElement("a");
+pillNav.appendChild(a2);
+a2.href = "#";
+a2.id = "a2";
+a2.textContent = "2. Hydration check";
+
+const a3 = document.createElement("a");
+pillNav.appendChild(a3);
+a3.href = "#";
+a3.id = "a3";
+a3.textContent = "3. Nap";
+
+// build out changing bground image based on leisure choice
+function focusBground() {
+  document.body.style.backgroundColor = '#1de7c5ff';
+  document.body.style.backgroundImage = "url('https://images.pexels.com/photos/5255277/pexels-photo-5255277.jpeg')";
+  document.body.style.backgroundSize = "cover";
+}
+
+function hydrationBground() {
+  document.body.style.backgroundColor = '#eede29ff';
+  document.body.style.backgroundImage = "url('https://images.pexels.com/photos/1044056/pexels-photo-1044056.jpeg')";
+  document.body.style.backgroundSize = "cover";
+  document.body.style.color = "#fffffff7";
+}
+
+function napBground() {
+  document.body.style.backgroundColor = '#ee5d29ff';
+  document.body.style.backgroundImage = "url('https://images.pexels.com/photos/46024/pexels-photo-46024.jpeg')";
+  document.body.style.color = "#ffff00ff";
+}
+document.getElementById("a1").addEventListener("click", focusBground);
+document.getElementById("a2").addEventListener("click", hydrationBground);
+document.getElementById("a3").addEventListener("click", napBground);
 
 // Build out timer countdown 
 function timer() {
-
 
 // Come back and give user more control over the timer
 let hours = 0o0;
@@ -69,7 +97,7 @@ let decrement = setInterval(() => {
   // body.appendChild(timerCount);
   body.appendChild(startButton);
   body.appendChild(pauseButton);
-  body.appendChild(dropdown);
+  // body.appendChild(dropdown);
   
 
   // if user pauses timer
@@ -89,62 +117,10 @@ if (seconds < 0) {
   body.appendChild(expired);
   body.appendChild(startButton);
   body.appendChild(pauseButton);
-  body.appendChild(dropdown);
+  // body.appendChild(dropdown);
   //adding barking dogs as alarm
-  document.getElementById("dogs").onplay()
+  document.getElementById("dogs").play()
 }
 }, 1000)
 
-
 }
-
-
-
-
-// First time working with timer
-// creating and showing the timer
-// document.getElementById("timer").innerHTML = seconds + 's';
-// let seconds = 30;
-// let running = true;
-
-// decrement timer 
-// function updateTimer(seconds) {
-//   while (seconds > 0) {
-//     seconds--;
-//   }
-// }
-
-// make sure that seconds decrement each for each second that passes
-// function start(func) {
-//   setInterval(updateTimer,1000);
-// }
-
-// starting code from https://www.w3schools.com/howto/howto_js_countdown.asp
-
-//   let countDownTime = new Date("00:00:00").getTime();
-
-//   // Make sure the count updates each second
-//   let countUpdate = setInterval(function() {
-
-//   // Starting point -> 30secs for demo
-//   let start = new Date("0:00:30");
-
-//   // Find the difference between the countDownTime and start
-//   let timeDifference = countDownTime - start;
-
-//   // Calculating minutes and seconds
-//   let minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
-//   let seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
-
-//   // Showing the timer
-//   document.getElementById("timer").innerHTML = minutes + "m " + seconds + "s ";
-
-//   // What to show when the timeDifference hits 0
-//   if (timeDifference < 0) {
-//     clearInterval(countUpdate);
-//     // Maybe play some audio of dog barking here:
-//     document.getElementById("timer").innerHTML = "Ruh Roh, your timer has expired!";
-//   }
-// }, 1000);
-
-// from https://webcrunch.com/posts/javascript-countdown
