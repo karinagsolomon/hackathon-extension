@@ -4,7 +4,7 @@
 // Timer Header
 const body = document.body;
 const timerHeader = document.createElement("h1");
-timerHeader.innerHTML = 'Pomodoro Timer';
+timerHeader.innerHTML = 'Start your pomodoro timer';
 body.appendChild(timerHeader);
 
 // Timer - user functionality
@@ -25,7 +25,7 @@ pauseButton.id = "pause";
 // pill nav
 
 const nav = document.createElement("h3");
-nav.innerHTML = 'Select your leisure break: ';
+nav.innerHTML = 'What are you in the mood for?';
 body.appendChild(nav);
 
 const pillNav = document.createElement("div");
@@ -69,7 +69,7 @@ function hydrationBground() {
 function napBground() {
   document.body.style.backgroundColor = '#ee5d29ff';
   document.body.style.backgroundImage = "url('https://images.pexels.com/photos/46024/pexels-photo-46024.jpeg')";
-  document.body.style.color = "#ffff00ff";
+  document.body.style.color = "#ee5d29ff";
 }
 document.getElementById("a1").addEventListener("click", focusBground);
 document.getElementById("a2").addEventListener("click", hydrationBground);
